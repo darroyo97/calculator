@@ -1,27 +1,24 @@
 window.onload = function () {
 
-    var buttons = document.getElementById('buttons');
+    var buttons = document.querySelector('.buttons')
     var clear = document.getElementById('clear');
-    var answer = document.getElementById('answer');
+    var answer = document.getElementById('input');
 
     // clicking on each button
     buttons.addEventListener('click', function (e) {
 
-        if (e.target.nodeName === 'LI') {
 
-            // get value of button
-            var v = e.target.innerHTML;
+        // get value of button
+        var v = e.target.innerHTML;
 
-            if (v === '=') {
-                try {
-                    answer.innerHTML = eval(answer.innerHTML);
-                } catch (e) {
-                    answer.innerHTML = e.message;
-                }
-            } else {
-                answer.innerHTML += v;
+        if (v === '=') {
+            try {
+                answer.innerHTML = eval(answer.innerHTML);
+            } catch (e) {
+                answer.innerHTML = e.message;
             }
-
+        } else {
+            answer.innerHTML += v;
         }
 
     });
