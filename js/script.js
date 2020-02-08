@@ -6,19 +6,23 @@ window.onload = function () {
 
     // clicking on each button
     buttons.addEventListener('click', function (e) {
+        console.log(e.target.id)
+        // console.log(e.target.parentNode.parentNode.className)
+        if (e.target.id === 'listItem') {
 
+            // get value of button
+            var v = e.target.innerHTML;
 
-        // get value of button
-        var v = e.target.innerHTML;
-
-        if (v === '=') {
-            try {
-                answer.innerHTML = eval(answer.innerHTML);
-            } catch (e) {
-                answer.innerHTML = e.message;
+            if (v === '=') {
+                try {
+                    answer.innerHTML = eval(answer.innerHTML);
+                } catch (e) {
+                    answer.innerHTML = e.message;
+                }
+            } else {
+                answer.innerHTML += v;
             }
-        } else {
-            answer.innerHTML += v;
+
         }
 
     });
