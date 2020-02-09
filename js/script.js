@@ -30,7 +30,26 @@ buttons.addEventListener('click', function (e) {
         input.textContent = input.textContent + e.target.textContent
     }
     else if (e.target.textContent == "=") {
-        console.log(input.textContent)
+        // console.log(input.textContent)
+        stringStorage = input.textContent.split("+")
+        let numStorage = stringStorage.map(function (strNum) {
+            return parseFloat(strNum)
+        })
+        console.log(numStorage)
+        sum = numStorage.reduce(function (x, y) {
+            return x + y
+        })
+        console.log(sum)
+        input.textContent = sum.toString();
+        numStorage = [];
+        stringStorage = [];
+
+    }
+    else if (e.target.textContent == "C") {
+        input.textContent = ""
+        numStorage = [];
+        stringStorage = []
+        sum = 0;
     }
 
 
