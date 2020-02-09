@@ -12,7 +12,7 @@ let limitOperation = false;
 
 let validChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
 
-let validOpChar = ['+']
+let validOpChar = ['-']
 
 buttons.addEventListener('click', function (e) {
     // console.log(e.target)
@@ -32,14 +32,15 @@ buttons.addEventListener('click', function (e) {
         limitOperation = false;
     }
     else if (e.target.textContent == "=") {
-        // console.log(input.textContent)
-        stringStorage = input.textContent.split("+")
+        console.log(input.textContent)
+
+        stringStorage = input.textContent.split("-")
         let numStorage = stringStorage.map(function (strNum) {
             return parseFloat(strNum)
         })
         // console.log(numStorage)
         sum = numStorage.reduce(function (x, y) {
-            return x + y
+            return x - y
         })
         // console.log(sum)
         input.textContent = sum.toString();
