@@ -8,6 +8,7 @@ let numStorage = [];
 let stringStorage = [];
 
 let sum = 0;
+let limitOperation = false;
 
 let validChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
 
@@ -22,12 +23,13 @@ buttons.addEventListener('click', function (e) {
     //display result on our screen
     //if c reset all of our arrays and values
 
-    if (validChar.includes(e.target.innerText)) {
+    if (validChar.includes(e.target.innerText) && limitOperation == false) {
         // console.log('found');
         input.textContent = input.textContent + e.target.textContent
     }
     else if (validOpChar.includes(e.target.textContent)) {
         input.textContent = input.textContent + e.target.textContent
+        limitOperation = false;
     }
     else if (e.target.textContent == "=") {
         // console.log(input.textContent)
@@ -35,20 +37,22 @@ buttons.addEventListener('click', function (e) {
         let numStorage = stringStorage.map(function (strNum) {
             return parseFloat(strNum)
         })
-        console.log(numStorage)
+        // console.log(numStorage)
         sum = numStorage.reduce(function (x, y) {
             return x + y
         })
-        console.log(sum)
+        // console.log(sum)
         input.textContent = sum.toString();
         numStorage = [];
         stringStorage = [];
+        limitOperation = true
 
     }
     else if (e.target.textContent == "C") {
         input.textContent = ""
         numStorage = [];
         stringStorage = []
+        limitOperation = false
         sum = 0;
     }
 
