@@ -1,14 +1,16 @@
-window.onload = function () {
+let buttons = document.querySelector('.buttons');
 
-    // var buttons = document.querySelector('.buttons')
-    var clear = document.getElementById('clear');
-    var answer = document.getElementById('input');
+let result = document.getElementById('result')
 
-    // clear the answer field
-    clear.addEventListener('click', function () {
-        answer.innerHTML = '';
-    });
-    //
+let input = document.getElementById('input')
 
-};
+let numStorage = [];
+let stringStorage = [];
+
+let sum = 0;
+
+
+
+
+
 
