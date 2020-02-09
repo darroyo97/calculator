@@ -55,8 +55,6 @@ buttons.addEventListener('click', function (e) {
         limitOperation = false
         sum = 0;
     }
-
-
 })
 
 
